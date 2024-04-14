@@ -17,12 +17,22 @@
                 ?>
                 <tr>
                     <td width="45%">
-                        <img src="./img/<?= $row['img']; ?>">
+                        <img src="./img/<?=$row['img'];?>" style="width:300px; height:30px">
                     </td>
-                    <td width="23%"></td>
-                    <td width="7%"></td>
-                    <td width="7%"></td>
-                    <td></td>
+                    <td width="23%">
+                        <input type="text" name="text" value="<?=$row['text'];?>">
+                    </td>
+                    <td width="7%">
+                        <input type="radio" name="<?=$row['sh'];?>" value="<?=$row['id'];?>">
+                    </td>
+                    <td width="7%">
+                        <input type="checkbox" name="del" value="<?=$row['id'];?>">
+                    </td>
+                    <td>
+                        <input type="button" value="更新圖片" 
+                               onclick="op('#cover','#cvr','./modal/update_title.php?id=<?=$row['id'];?>')">
+                               <!-- 將foreach出來的id帶到modal/update_title.php -->
+                    </td>
                 </tr>
                 <?php } ?>
             </tbody>
