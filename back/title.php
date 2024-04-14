@@ -6,9 +6,25 @@
                 <tr class="yel">
                     <td width="45%">網站標題</td>
                     <td width="23%">替代文字</td>
-                    <td width="7%">顯示</td><td width="7%">刪除</td>
+                    <td width="7%">顯示</td>
+                    <td width="7%">刪除</td>
                     <td></td>
                 </tr>
+                <?php
+                $rows=$Title->all();
+                foreach($rows as $row){
+
+                ?>
+                <tr>
+                    <td width="45%">
+                        <img src="./img/<?= $row['img']; ?>">
+                    </td>
+                    <td width="23%"></td>
+                    <td width="7%"></td>
+                    <td width="7%"></td>
+                    <td></td>
+                </tr>
+                <?php } ?>
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">

@@ -7,8 +7,7 @@ if(isset($_FILES['img']['tmp_name'])){
     $img=$_FILES['img']['name'];
 }
 $data=['img'=>$img, 'text'=>$text, 'sh'=>0];
-$title=new DB('title');
-$title->save($data);
+$Title->save($data);
 
 to("../back.php?do=title");
 ?>

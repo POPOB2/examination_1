@@ -154,7 +154,8 @@ function dd($array){
    exec() = 僅執行SQL, 不回傳資料 (刪除等不供後續使用)
 */
 
-$bottom=new DB('bottom');
+$Bottom=new DB('bottom');
+$Title=new DB('title');
 ?>
 
 
