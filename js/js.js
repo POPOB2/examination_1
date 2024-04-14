@@ -13,18 +13,26 @@ $(document).ready(function(e) {
 		}
 	)
 });
+
+
 function lo(x)
 {
 	location.replace(x)
 }
+
+
 function op(x,y,url)
 {
-	$(x).fadeIn()
+	$(x).fadeIn() // x淡入(顯示)
+
 	if(y)
-	$(y).fadeIn()
+		$(y).fadeIn()
+
 	if(y&&url)
-	$(y).load(url)
+		$(y).load(url) // y裡面顯示url
 }
+
+
 function cl(x)
 {
 	$(x).fadeOut();
