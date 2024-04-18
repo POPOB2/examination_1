@@ -1,4 +1,7 @@
-﻿<?php include_once "base.php"; ?>
+﻿<?php 
+$do=$_GET['do']??'title';
+include_once "base.php";
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0068)?do=admin&redo=title -->
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -68,8 +71,9 @@
 					</table>
 <!-- 上方點擊a標籤, 傳GET的do, 來決定該區塊include什麼檔案 -->
 <?php
-$do=$_GET['do']??'title';
+// $do=$_GET['do']??'title';
 $file="./back/".$do.".php";
+// $Str=new Str($do);
 if(file_exists($file)){
 	include $file;
 }else{
