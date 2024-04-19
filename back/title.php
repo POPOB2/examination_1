@@ -1,6 +1,6 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli"><?=$Str->header;?></p>
-    <form method="post" target="back" action="?do=tii">
+    <form method="post" action="./api/edit_title.php">
         <table width="100%">
             <tbody>
                 <tr class="yel">
@@ -19,18 +19,20 @@
                         <img src="./img/<?=$row['img'];?>" style="width:300px; height:30px">
                     </td>
                     <td width="23%">
-                        <input type="text" name="text" value="<?=$row['text'];?>">
+                        <input type="text" name="text[]" value="<?=$row['text'];?>"> 
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 隱藏傳遞id, 用陣列索引值確認傳遞的資料 -->
                     </td>
                     <td width="7%">
-                        <input type="radio" name="<?=$row['sh'];?>" value="<?=$row['id'];?>">
+                        <!-- radio單選僅一筆不需陣列 -->
+                        <input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
                     </td>
                     <td width="7%">
-                        <input type="checkbox" name="del" value="<?=$row['id'];?>">
+                        <!-- text和del為可以多選, 為避免覆蓋, 需設為陣列[] -->
+                        <input type="checkbox" name="del[]" value="<?=$row['id'];?>"> 
                     </td>
                     <td>
                         <input type="button" value="<?=$Str->updateImg?>" 
-                               onclick="op('#cover','#cvr','./modal/update_title.php?id=<?=$row['id'];?>')">
-                               <!-- 將foreach出來的id帶到modal/update_title.php -->
+                               onclick="op('#cover','#cvr','./modal/update_title.php?id=<?=$row['id'];?>')"> <!-- 將foreach出來的id帶到modal/update_title.php -->
                     </td>
                 </tr>
                 <?php } ?>
