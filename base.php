@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("Asia/Taipei");
 session_start();
-// $do=$_GET['do']??'title';
+$do=$_GET['do']??'title';
 class DB{
     protected $dsn="mysql:host=localhost;charset=utf8;dbname=db102201";
     protected $user='root';
