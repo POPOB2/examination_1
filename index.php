@@ -1,4 +1,5 @@
 <?php
+$do=$_GET['do']??'main';
 include "base.php";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -31,7 +32,7 @@ include "base.php";
                     </div>
         		</div>
 			<?php
-			$do=$_GET['do']??'main';
+			// $do=$_GET['do']??'main';
 			$file="./front/".$do.".php";
 			if(file_exists($file)){
 				include "./front/{$do}.php";

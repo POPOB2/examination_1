@@ -1,26 +1,30 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli"><?=$Str->header;?></p>
-    <form method="post" action="./api/edit.php">
+    <form method="post" action="./api/edit_title.php">
         <table width="100%">
             <tbody>
                 <tr class="yel">
-                    <td width="70%"><?=$Str->tdHead[0]?></td>
-                    <td width="10%">顯示</td>
-                    <td width="10%">刪除</td>
-                    <td></td>
+                    <td width="45%"><?=$Str->imgHead?></td>
+                    <td width="23%"><?=$Str->textHead?></td>
+                    <td width="7%">顯示</td>
+                    <td width="7%">刪除</td>
                 </tr>
                 <?php
                 $rows=$DB->all();
                 foreach($rows as $row){
                 ?>
                 <tr>
-                    <td>
-                        <img src="./img/<?=$row['img'];?>" style="width:300px; height:180px">
+                    <td width="45%">
+                        <img src="./img/<?=$row['img'];?>" style="width:300px; height:30px">
                     </td>
-                    <td>
-                        <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
+                    <td width="23%">
+                        <input type="text" name="text[]" value="<?=$row['text'];?>"> 
+                        <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                     </td>
-                    <td>
+                    <td width="7%">
+                        <input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
+                    </td>
+                    <td width="7%">
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>"> 
                     </td>
                     <td>
@@ -28,7 +32,6 @@
                                onclick="op('#cover','#cvr','./modal/update_title.php?id=<?=$row['id'];?>')">
                     </td>
                 </tr>
-                <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                 <?php } ?>
             </tbody>
         </table>
@@ -45,6 +48,5 @@
                 </tr>
             </tbody>
         </table>    
-        <input type="hidden" name="table" value="<?=$do?>">
     </form>
 </div>

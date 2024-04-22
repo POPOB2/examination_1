@@ -4,10 +4,9 @@
         <table width="100%">
             <tbody>
                 <tr class="yel">
-                    <td width="70%"><?=$Str->tdHead[0]?></td>
+                    <td width="80%"><?=$Str->tdHead[0]?></td>
                     <td width="10%">顯示</td>
                     <td width="10%">刪除</td>
-                    <td></td>
                 </tr>
                 <?php
                 $rows=$DB->all();
@@ -15,17 +14,14 @@
                 ?>
                 <tr>
                     <td>
-                        <img src="./img/<?=$row['img'];?>" style="width:300px; height:180px">
+                        <!-- 依題目要求使用textarea提供的排版 -->
+                        <textarea name="text[]" style="width:95%; height:60px;"><?=$row['text'];?></textarea>
                     </td>
                     <td>
                         <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
                     </td>
                     <td>
                         <input type="checkbox" name="del[]" value="<?=$row['id'];?>"> 
-                    </td>
-                    <td>
-                        <input type="button" value="<?=$Str->updateImg?>" 
-                               onclick="op('#cover','#cvr','./modal/update_title.php?id=<?=$row['id'];?>')">
                     </td>
                 </tr>
                 <input type="hidden" name="id[]" value="<?=$row['id'];?>">
