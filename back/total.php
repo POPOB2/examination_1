@@ -21,11 +21,11 @@
                         <input type="text" name="text[]" value="<?=$row['text'];?>"> 
                         <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                     </td>
-                    <td width="7%">
+                    <td width="7%">s
                         <input type="radio" name="sh" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
                     </td>
                     <td width="7%">
-                        <input type="checkbox" name="del[]" value="<?=$row['id'];?>"> 
+                        <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
                     </td>
                     <td>
                         <input type="button" value="<?=$Str->updateImg?>" 

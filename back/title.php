@@ -31,7 +31,7 @@
                     </td>
                     <td>
                         <input type="button" value="<?=$Str->updateImg?>" 
-                               onclick="op('#cover','#cvr','./modal/update_title.php?id=<?=$row['id'];?>')"> <!-- 將foreach出來的id帶到modal/update_title.php -->
+                               onclick="op('#cover','#cvr','./modal/upload.php?id=<?=$row['id'];?>&table=<?=$Str->table;?>')"> <!-- 將foreach出來的id帶到modal/update_title.php -->
                     </td>
                 </tr>
                 <input type="hidden" name="id[]" value="<?=$row['id'];?>"> <!-- 隱藏傳遞id, 用陣列索引值確認傳遞的資料 -->

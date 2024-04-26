@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set("Asia/Taipei");
 session_start();
-$do=$_GET['do']??'title';
+// $do=$_GET['do']??'title'; // 會覆蓋到modal/upload.php裡$_GET帶的$do=title先註解
 class DB{
     protected $dsn="mysql:host=localhost;charset=utf8;dbname=db102201";
     protected $user='root';
@@ -141,6 +141,7 @@ class Str{
     // public $textHead;
     public $tdHead; // 把整列tr的內容, 用陣列簡化成一個變數, 以解決某些頁面tr底下太多內容
     public $updateImg;
+    public $uploadModal;
     public $acc;
     public $pw;
     public $mainText;
@@ -160,6 +161,7 @@ class Str{
                 $this->header="網站標題管理";
                 $this->tdHead=["網站標題","替代文字"];
                 $this->updateImg="更新圖片";
+                $this->uploadModal=["更新網站標題圖片","標題區圖片"];
                 $this->addBtn="新增網站標題圖片";
                 $this->addModalHeader="新增網站標題圖片";
                 $this->addModalCol=["標題區圖片","標題區替代文字"];
@@ -175,6 +177,7 @@ class Str{
                 $this->header="校園映像資料管理";
                 $this->tdHead=["校園映像資料圖片"];
                 $this->updateImg="更換圖片";
+                $this->uploadModal=["更換校園映像圖片","校園映像圖片"];
                 $this->addBtn="新增校園映像圖片";
                 $this->addModalHeader="新增校園映像圖片";
                 $this->addModalCol=["校園映像圖片"];
@@ -183,6 +186,7 @@ class Str{
                 $this->header="動畫圖片管理";
                 $this->tdHead=["動畫圖片"];
                 $this->updateImg="更換動畫";
+                $this->uploadModal=["更換動畫圖片","動畫圖片"];
                 $this->addBtn="新增動畫圖片";
                 $this->addModalHeader="新增動畫圖片";
                 $this->addModalCol=["動畫圖片"];
