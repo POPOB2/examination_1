@@ -243,7 +243,7 @@ function dd($array){
    exec() = 僅執行SQL, 不回傳資料 (刪除等不供後續使用)
 */
 
-$Bottom=new DB('bottom');
+$Bot=new DB('bottom');
 $Total=new DB('total');
 $Title=new DB('title');
 $Ad=new DB('ad');
@@ -254,6 +254,8 @@ $Admin=new DB('admin');
 $Menu=new DB('menu');
 
 $Str=new Str($do);
+
+
 ?>
 
 

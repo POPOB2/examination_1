@@ -28,7 +28,7 @@ include "base.php";
 						<span class="t botli">主選單區</span>
 					</div>
                     	<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-                    	<span class="t">進站總人數 : 1 </span>
+                    	<span class="t">進站總人數 : <?=$Total->find(1)['total'];?></span>
                     </div>
         		</div>
 			<?php
