@@ -12,7 +12,7 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$DB->all();
+                $rows=$DB->all(['parent'=>0]); // 0==主選單, 只顯示主選單, 次選單內容只顯示在浮動頁面
                 foreach($rows as $row){
                 ?>
                 <tr>
