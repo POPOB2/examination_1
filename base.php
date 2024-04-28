@@ -105,7 +105,7 @@ class DB{
 
 // ==========================================================================================================================================================
 // 計算
-    public function nath($math,$col,...$arg){ 
+    public function math($math,$col,...$arg){ 
         $sql="SELECT $math($col) FROM $this->table "; // 查詢計算結果
         
         if(isset($arg[0])){ 

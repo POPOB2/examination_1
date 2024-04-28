@@ -21,7 +21,7 @@ $subs=$Menu->all(['parent'=>$_GET['id']]); // 用all()從parent(主選單)中撈
         <tr>
             <td><input type="text" name="text[]" value="<?=$sub['text'];?>"></td>
             <td><input type="text" name="href[]" value="<?=$sub['href'];?>"></td>
-            <td><input type="checkbox" name="del[]" value="<?=$sub['id'];?>"></td>
+            <td><input type="checkbox" name="del[]" value="<?=$sub['id'];?>"></td> <!-- checkbox的true/false並非value, 當勾為true時才會以POST傳遞設置的value -->
         </tr>
         <!-- 帶一個隱藏的id, 供下個頁面操作時$_POST接收到, 知道是變更哪筆(id)資料 -->
         <input type="hidden" name="id[]" value="<?=$sub['id'];?>">
@@ -30,6 +30,7 @@ $subs=$Menu->all(['parent'=>$_GET['id']]); // 用all()從parent(主選單)中撈
         ?>
     </table>
     <div class="cent">
+        <input type="hidden" name="parent" value="<?=$_GET['id'];?>">
         <input type="submit" value="修改確定">
         <input type="reset" value="重置">
         <input type="button" value="更多次選單" onclick="more()">

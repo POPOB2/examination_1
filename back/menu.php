@@ -23,7 +23,8 @@
                         <input type="text" name="href[]" value="<?=$row['href'];?>"> 
                     </td>
                     <td>
-                        0
+                        <!-- 計算次選單總數 -->
+                        <?=$DB->math('count','id',['parent'=>$row['id']]);?> 
                     </td>
                     <td>
                         <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>>
