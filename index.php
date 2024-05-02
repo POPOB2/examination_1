@@ -61,13 +61,13 @@ include "base.php";
                 	<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=admin')">管理登入</button>
                 	<div style="width:89%; height:480px;" class="dbor">
                     	<span class="t botli">校園映象區</span>
-
+						<!-- 圖片區域 -->
 						<div class="cent"><img src="./icon/up.jpg" onclick="pp(1)"></div>
 						<?php
 							$imgs=$Image->all(['sh'=>1]);
 							foreach($imgs as $idx => $img){
 						?>
-						<div id="ssaa<?=$idx?>" class="cent im">
+						<div id="ssaa<?=$idx;?>" class="cent im">
 							<img src="./img/<?=$img['img'];?>">
 						</div>
 						<?php
@@ -76,23 +76,25 @@ include "base.php";
 						<div class="cent"><img src="./icon/dn.jpg" onclick="pp(2)"></div>
 
 						<script>
-                        	var nowpage=0, num=<?=$Image->math('count','id',['sh'=>1]);?>; // 計算 id總數 顯示設為1的資料
+                        	var nowpage=0; // nowpage==顯示的圖片編號(最上面的圖的編號)
+							var num=<?=$Image->math('count','id',['sh'=>1]);?>; // num==圖片總數 : 計算(id總數 顯示設為1的資料)
 							function pp(x){
-								var s,t;
+								var showQty; 
+								var showImage; 
 								
 								if(x==1 && nowpage-1>=0){
 									nowpage--;}
 
-								if(x==2 && (nowpage+1) <= (num-3)){
-									nowpage++;}
+								if(x==2 && (nowpage+1) <= (num-3)){ 
+									nowpage++;} 
 
-								$(".im").hide()
-								for(s=0; s<=2; s++){
-									t=s*1+nowpage*1;
-									$("#ssaa"+t).show();
+								$(".im").hide() // 先隱藏全部圖片, 在用下方迴圈抓出要顯示的三張圖片
+								for(showQty=0; showQty<=2; showQty++){ // showQty==顯示的圖片數量(迴圈次數==數量)
+									showImage = showQty + nowpage;  // 迴圈號1、2、3 + nowpage == 下方要設為show()的圖片
+									$("#ssaa" + showImage).show();
 								}
 							}
-							pp(1)
+							pp(1); // 第一次啟用 : 1.隱藏所有.im   2.顯示#ssaa012(012+000=012)
                         </script>
                     </div>
                 </div>
