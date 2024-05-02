@@ -45,16 +45,23 @@
 
 
 	<div style="width:95%; padding:2px; height:190px; margin-top:10px; padding:5px 10px 5px 10px; border:#0C3 dashed 3px; position:relative;">
-		<span class="t botli">最新消息區</span>
+		<span class="t botli">最新消息區
+			<?php
+			if($News->math('count','id',['sh'=>1]) > 5){
+				echo "<a href='?do=news' style='float:right';>More...</a>";
+			}
+			
+			?>
+		</span>
 		<ul class="ssaa" style="list-style-type:decimal;">
 		<?php
 			$ns=$News->all(['sh'=>1], " limit 5");
 			foreach($ns as $n){
 				echo "<li>";
 				echo mb_substr($n['text'],0,20)."..."; // 取20字元顯示
-				echo " <span class='all' style='display:none;'>";
+				echo "<span class='all' style='display:none;'>";
 				echo $n['text'];
-				echo " </span>";
+				echo "</span>";
 				echo "</li>";
 			}
 			
