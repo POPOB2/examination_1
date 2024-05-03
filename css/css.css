@@ -69,6 +69,7 @@ body
 .mainmu
 {
 	position:relative;
+	height: 32px;
 	border-radius:10px;
 	background:url(../icon/menu.fw.png) center no-repeat;
 	background-size:cover;
@@ -90,11 +91,19 @@ body
 	line-height:30px;
 	padding:2px 10px 2px 10px;
 	margin:7px 1px 7px 1px;
+	z-index:99;
 }
 .mainmu2:hover
 {
 	background:url(../icon/menu4.fw.png) center no-repeat;
 	background-size:cover;
+}
+.mw{
+	position: absolute;
+	left:120px;
+	width:210px;
+	z-index:99; /* 在.mw放z-index避免觸發js的mouseout() */
+	/* background-color:yellow; */
 }
 #lf
 {

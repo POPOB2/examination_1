@@ -1,5 +1,6 @@
 // JavaScript Document
 $(document).ready(function(e) {
+	$(".mw").hide(); // 載入網頁先隱藏全部
     $(".mainmu").mouseover(
 		function()
 		{
